@@ -1,0 +1,88 @@
+/* Configurações Globais (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+}
+
+/* 1. FLEXBOX NO CONTAINER PRINCIPAL */
+.feed-container {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que os cards pulem de linha se não couberem */
+    justify-content: center; /* Centraliza os cards na tela */
+    gap: 25px;             /* Espaçamento uniforme entre os cards */
+    padding: 20px;
+}
+
+/* 2. CLASSES REUTILIZÁVEIS PARA OS CARDS */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    display: flex;          /* Flexbox interno */
+    flex-direction: column; /* Alinha os itens do card verticalmente */
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1; /* Faz o corpo ocupar o espaço restante uniformemente */
+}
+
+/* 3. FLEXBOX NAS AÇÕES DO CARD (Botão + Contador) */
+.card-actions {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente botão e texto */
+    gap: 10px;
+    margin-top: auto;   /* Empurra os botões sempre para o rodapé do card */
+}
+
+.btn-like {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-like:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Classe dinâmica que o JavaScript vai aplicar ao curtir */
+.btn-like.liked {
+    background-color: #2ecc71;
+}
+
+.like-counter {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
